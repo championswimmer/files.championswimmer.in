@@ -1,0 +1,6 @@
+# files.championswimmer.in
+
+This is the backend source of files.championswimmer.in as it is right now.
+
+It is based on the source of xfer.aokp.co (https://github.com/willdeberry/androtransfer.com/)
+which itself is based on androtransfer.com (https://github.com/sixstringsg/androtransfer.com)
