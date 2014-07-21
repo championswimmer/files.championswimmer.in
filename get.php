@@ -23,58 +23,62 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-function fetch($content,$start,$end){
-  if($content && $start && $end) {
-    $r = explode($start, $content);
-    if (isset($r[1])){
-        $r = explode($end, $r[1]);
-        return $r[0];
+function fetch($content, $start, $end)
+{
+    if ($content && $start && $end) {
+        $r = explode($start, $content);
+        if (isset($r[1])) {
+            $r = explode($end, $r[1]);
+            return $r[0];
+        }
+        return '';
     }
-    return '';
-  }
 }
 
-function get_info($url){
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,"$url");
-curl_setopt($ch, CURLOPT_USERAGENT, "AndroBot");
-curl_setopt($ch, CURLOPT_REFERER, "http://files.championswimmer.in/");
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, "10");
-curl_setopt($ch, CURLOPT_TIMEOUT, "10");
-$gurl = curl_exec($ch);
-curl_close($ch);
+function get_info($url)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "$url");
+    curl_setopt($ch, CURLOPT_USERAGENT, "AndroBot");
+    curl_setopt($ch, CURLOPT_REFERER, "http://files.championswimmer.in/");
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, "10");
+    curl_setopt($ch, CURLOPT_TIMEOUT, "10");
+    $gurl = curl_exec($ch);
+    curl_close($ch);
 
-return $gurl;
+    return $gurl;
 }
 
-function is_available($url, $timeout = 30) {
-$ch = curl_init();
-$opts = array(CURLOPT_RETURNTRANSFER => true, // do not output to browser
-CURLOPT_URL => $url,            // set URL
-CURLOPT_NOBODY => true,         // do a HEAD request only
-CURLOPT_TIMEOUT => $timeout);   // set timeout
-curl_setopt_array($ch, $opts);
-curl_exec($ch);
-$retval = curl_getinfo($ch, CURLINFO_HTTP_CODE) == 200; // check if HTTP OK
-curl_close($ch); // close handle
+function is_available($url, $timeout = 30)
+{
+    $ch = curl_init();
+    $opts = array(CURLOPT_RETURNTRANSFER => true, // do not output to browser
+        CURLOPT_URL => $url, // set URL
+        CURLOPT_NOBODY => true, // do a HEAD request only
+        CURLOPT_TIMEOUT => $timeout); // set timeout
+    curl_setopt_array($ch, $opts);
+    curl_exec($ch);
+    $retval = curl_getinfo($ch, CURLINFO_HTTP_CODE) == 200; // check if HTTP OK
+    curl_close($ch); // close handle
 //$retval='false';
-return $retval;
+    return $retval;
 }
 
-function percent($num_amount, $num_total) {
- $count1 = $num_amount / $num_total;
- $count2 = $count1 * 100;
- $count = number_format($count2, 0);
- return $count;
+function percent($num_amount, $num_total)
+{
+    $count1 = $num_amount / $num_total;
+    $count2 = $count1 * 100;
+    $count = number_format($count2, 0);
+    return $count;
 }
 
 require_once 'config.php';
 
-if($_GET['debug']){
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+if ($_GET['debug']) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
 }
 
 $path = $_GET['p'];
@@ -92,7 +96,7 @@ $apollo = 'http://files.championswimmer.in/';
 
 ///assign stats urls
 //$server1='http://chaosstats.xfer.in/multiservers/upload/multiserv.php?action=stat';
-$server2='http://files.championswimmer.in/multiservers/upload/multiserv.php?action=stat';
+$server2 = 'http://files.championswimmer.in/multiservers/upload/multiserv.php?action=stat';
 //$server3='http://dionysusstats.xfer.in/multiservers/upload/multiserv.php?action=stat';
 //$server4='http://erebosstats.xfer.in/multiservers/upload/multiserv.php?action=stat';
 
@@ -102,12 +106,12 @@ $server2_res = get_info($server2);
 //$server4_res = get_info($server4);
 
 //$load1 = fetch($server1_res,'<load>','</load>'); //get current load avg from mirrors
-$load2 = fetch($server2_res,'<load>','</load>');
+$load2 = fetch($server2_res, '<load>', '</load>');
 //$load3 = fetch($server3_res,'<load>','</load>');
 //$load4 = fetch($server4_res,'<load>','</load>');
 
 //$load1 = percent($load1,12.00); //generate percent based on number of cpus
-$load2 = percent($load2,8.00);
+$load2 = percent($load2, 8.00);
 //$load3 = percent($load3,6.00);
 //$load4 = percent($load4,1.00);
 
@@ -117,13 +121,13 @@ $load2 = percent($load2,8.00);
 //$random = rand(1,2);
 $random = 1;
 
-if($random == '1'){
-$mirrors = array(
+if ($random == '1') {
+    $mirrors = array(
 //    $chaos => $load1,
-    $apollo => $load2,
+        $apollo => $load2,
 //    $dionysus => $load3
 //    $erebos => $load4
-);
+    );
 }
 //if($random == '2'){
 //$mirrors = array(
@@ -154,14 +158,14 @@ $mirrors = array(
 $mirror = array_search(min($mirrors), $mirrors);
 //$mirror='http://dionysus.xfer.in/';
 
-if(in_array($ext, $blacklist)) {
-    die($ext." is not an allowed extension.");
+if (in_array($ext, $blacklist)) {
+    die($ext . " is not an allowed extension.");
 }
-if(strpos($path, '../') !== false || strpos($path, '..\\') !== false || strpos(realpath($baseDir.'/'.$path), 'public_html') == false) {
+if (strpos($path, '../') !== false || strpos($path, '..\\') !== false || strpos(realpath($baseDir . '/' . $path), 'public_html') == false) {
     die("<meta http-equiv=\"refresh\" content=\"5;url=http://files.championswimmer.in/\" /> Error: 2 [ Not Allowed ]");
 }
 
-$location = $baseDir."/.counts";
+$location = $baseDir . "/.counts";
 $fp = fopen($location, "r+");
 
 if ($fp) {
@@ -185,10 +189,10 @@ if ($fp) {
                 rewind($fp);
                 fwrite($fp, $newData);
             } else {
-                file_put_contents($baseDir."/.last_error_encode", "JSON failed to encode: " . json_last_error());
+                file_put_contents($baseDir . "/.last_error_encode", "JSON failed to encode: " . json_last_error());
             }
         } else {
-            file_put_contents($baseDir."/.last_error_decode", "JSON failed to decode: " . json_last_error());
+            file_put_contents($baseDir . "/.last_error_decode", "JSON failed to decode: " . json_last_error());
         }
         flock($fp, LOCK_UN);
     }
@@ -210,258 +214,270 @@ if ($dc && count($dc) > 0) {
 
 //set mirrors file path
 
-$dlink=$mirror.''.$path;
+$dlink = $mirror . '' . $path;
 //echo $dlink;
 //die;
 
-if($_GET['directserve']){
- header("Pragma: public");
- header("Expires: 0");
- header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
- header("Cache-Control: public");
- header("Content-Description: File Transfer");
- header("Content-type: application/octet-stream");
- header("Content-Disposition: attachment; filename=\"".$filename."\"");
- header("Content-Transfer-Encoding: binary");
- header("Content-Length: ".filesize($baseDir . "/" . $path));
- readfile($baseDir . "/" . $path);
- die;
+if ($_GET['directserve']) {
+    header("Pragma: public");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("Cache-Control: public");
+    header("Content-Description: File Transfer");
+    header("Content-type: application/octet-stream");
+    header("Content-Disposition: attachment; filename=\"" . $filename . "\"");
+    header("Content-Transfer-Encoding: binary");
+    header("Content-Length: " . filesize($baseDir . "/" . $path));
+    readfile($baseDir . "/" . $path);
+    die;
 }
 
 //double check if file is found and available, if not serve from main server
-if(is_available($dlink)){
+if (is_available($dlink)) {
 
-if($_GET['countdown']){
-header("Location: ".$dlink);
-die;
-}
+    if ($_GET['countdown']) {
+        header("Location: " . $dlink);
+        die;
+    }
 
-$ref=$_SERVER['HTTP_REFERER'];
-$ref='http://google.com/';
+    $ref = $_SERVER['HTTP_REFERER'];
+    $ref = 'http://google.com/';
 
-if (strpos($ref,'http://files.championswimmer.in/')===0 || strpos($ref,'http')!==0 || strpos($ref,'http://www.andro.sudoservers.com/')===0){
-	header("Location: ".$dlink);
-}else{
-	$file = $baseDir . "/" . $path;
-?>
+    if (strpos($ref, 'http://files.championswimmer.in/') === 0 || strpos($ref, 'http') !== 0 || strpos($ref, 'http://www.andro.sudoservers.com/') === 0) {
+        header("Location: " . $dlink);
+    } else {
+        $file = $baseDir . "/" . $path;
+        ?>
 
-<?php include 'androxfer-head.php'; ?>
-<?php include 'androxfer-header.php'; ?>
+        <?php include 'androxfer-head.php'; ?>
+        <?php include 'androxfer-header.php'; ?>
 
-    <div id="links" class="andro-column">
-		<div id="files" class="andro-column">
-			<h2>Downloading: <?=basename($_GET['p']);?></h2>
-			<div class="dir-message">
-				<p>Please wait while we prepare your download!</p>
-				<p>File: <?=basename($_GET['p']);?></p>
-				<p>md5: <?=md5_file($file);?></p>
-				<p id="counttext"><span id='countDown'>10</span> second(s) left</span></p>
-			</div>
-		</div>
-	</div>
+        <div id="links" class="andro-column">
+            <div id="files" class="andro-column">
+                <h2>Downloading: <?= basename($_GET['p']); ?></h2>
 
-<?php include 'androxfer-footer.php'; ?>
+                <div class="dir-message">
+                    <p>Please wait while we prepare your download!</p>
 
-<script type="text/javascript">
-function startCountDown(i, p, f) {
+                    <p>File: <?= basename($_GET['p']); ?></p>
+
+                    <p>md5: <?= md5_file($file); ?></p>
+
+                    <p id="counttext"><span id='countDown'>10</span> second(s) left</span></p>
+                </div>
+            </div>
+        </div>
+
+        <?php include 'androxfer-footer.php'; ?>
+
+        <script type="text/javascript">
+            function startCountDown(i, p, f) {
 // store parameters
-var pause = p;
-var fn = f;
+                var pause = p;
+                var fn = f;
 // make reference to div
-var countDownObj = document.getElementById("countDown");
-if (countDownObj == null) {
+                var countDownObj = document.getElementById("countDown");
+                if (countDownObj == null) {
 // error
-alert("div not found, check your id");
+                    alert("div not found, check your id");
 // bail
-return;
-}
-countDownObj.count = function(i) {
+                    return;
+                }
+                countDownObj.count = function (i) {
 // write out count
-countDownObj.innerHTML = i;
-if (i == 0) {
+                    countDownObj.innerHTML = i;
+                    if (i == 0) {
 // execute function
-fn();
+                        fn();
 // stop
-return;
-}
-setTimeout(function() {
+                        return;
+                    }
+                    setTimeout(function () {
 // repeat
-countDownObj.count(i - 1);
-},
-pause
-);
-}
+                            countDownObj.count(i - 1);
+                        },
+                        pause
+                    );
+                }
 // set it going
-countDownObj.count(i);
-}
+                countDownObj.count(i);
+            }
 
-function do_download(){
-var newtext = "Initializing File Download...";
-document.getElementById('counttext').innerHTML = newtext;
-document.location.href='http://files.championswimmer.in/get.php?p=<?=$_GET['p']?>&countdown=1';
-}
-</script>
+            function do_download() {
+                var newtext = "Initializing File Download...";
+                document.getElementById('counttext').innerHTML = newtext;
+                document.location.href = 'http://files.championswimmer.in/get.php?p=<?=$_GET['p']?>&countdown=1';
+            }
+        </script>
 
-<script>startCountDown(10, 1000, do_download);</script>
+        <script>startCountDown(10, 1000, do_download);</script>
 
-</body></html>
+        </body></html>
 
-<?
-}
+    <?
+    }
 
-}else{
+} else {
 
-if($_GET['countdown']){
-?>
+    if ($_GET['countdown']) {
+        ?>
 
-<?php include 'androxfer-head.php'; ?>
-<?php include 'androxfer-header.php'; ?>
+        <?php include 'androxfer-head.php'; ?>
+        <?php include 'androxfer-header.php'; ?>
 
-    <div id="links" class="andro-column">
-		<div id="files" class="andro-column">
-			<h2>Downloading: <?=basename($_GET['p']);?></h2>
-			<div class="dir-message">
-				<p>Please wait while we prepare your download!</p>
-				<p>File: <?=basename($_GET['p']);?></p>
-				<p>md5: <?=md5_file($file);?></p>
-				<p id="counttext"><span id='countDown'>10</span> second(s) left</span></p>
-			</div>
-		</div>
-	</div>
+        <div id="links" class="andro-column">
+            <div id="files" class="andro-column">
+                <h2>Downloading: <?= basename($_GET['p']); ?></h2>
 
-<?php include 'androxfer-footer.php'; ?>
+                <div class="dir-message">
+                    <p>Please wait while we prepare your download!</p>
 
-<script type="text/javascript">
-function startCountDown(i, p, f) {
+                    <p>File: <?= basename($_GET['p']); ?></p>
+
+                    <p>md5: <?= md5_file($file); ?></p>
+
+                    <p id="counttext"><span id='countDown'>10</span> second(s) left</span></p>
+                </div>
+            </div>
+        </div>
+
+        <?php include 'androxfer-footer.php'; ?>
+
+        <script type="text/javascript">
+            function startCountDown(i, p, f) {
 // store parameters
-var pause = p;
-var fn = f;
+                var pause = p;
+                var fn = f;
 // make reference to div
-var countDownObj = document.getElementById("countDown");
-if (countDownObj == null) {
+                var countDownObj = document.getElementById("countDown");
+                if (countDownObj == null) {
 // error
-alert("div not found, check your id");
+                    alert("div not found, check your id");
 // bail
-return;
-}
-countDownObj.count = function(i) {
+                    return;
+                }
+                countDownObj.count = function (i) {
 // write out count
-countDownObj.innerHTML = i;
-if (i == 0) {
+                    countDownObj.innerHTML = i;
+                    if (i == 0) {
 // execute function
-fn();
+                        fn();
 // stop
-return;
-}
-setTimeout(function() {
+                        return;
+                    }
+                    setTimeout(function () {
 // repeat
-countDownObj.count(i - 1);
-},
-pause
-);
-}
+                            countDownObj.count(i - 1);
+                        },
+                        pause
+                    );
+                }
 // set it going
-countDownObj.count(i);
-}
+                countDownObj.count(i);
+            }
 
-function do_download(){
-var newtext = "Initializing File Download...";
-document.getElementById('counttext').innerHTML = newtext;
-document.location.href='http://files.championswimmer.in/get.php?p=<?=$_GET['p']?>&countdown=1';
-}
-</script>
+            function do_download() {
+                var newtext = "Initializing File Download...";
+                document.getElementById('counttext').innerHTML = newtext;
+                document.location.href = 'http://files.championswimmer.in/get.php?p=<?=$_GET['p']?>&countdown=1';
+            }
+        </script>
 
-<script>startCountDown(10, 1000, do_download);</script>
+        <script>startCountDown(10, 1000, do_download);</script>
 
-</body></html>
+        </body></html>
 
-<?
-die;
-}else{
+        <?
+        die;
+    } else {
 
-if($_GET['countdown']){
+        if ($_GET['countdown']) {
 
- header("Pragma: public");
- header("Expires: 0");
- header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
- header("Cache-Control: public");
- header("Content-Description: File Transfer");
- header("Content-type: application/octet-stream");
- header("Content-Disposition: attachment; filename=\"".$filename."\"");
- header("Content-Transfer-Encoding: binary");
- header("Content-Length: ".filesize($baseDir . "/" . $path));
- readfile($baseDir . "/" . $path);
- die;
+            header("Pragma: public");
+            header("Expires: 0");
+            header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+            header("Cache-Control: public");
+            header("Content-Description: File Transfer");
+            header("Content-type: application/octet-stream");
+            header("Content-Disposition: attachment; filename=\"" . $filename . "\"");
+            header("Content-Transfer-Encoding: binary");
+            header("Content-Length: " . filesize($baseDir . "/" . $path));
+            readfile($baseDir . "/" . $path);
+            die;
 
-}else{
-$file = $baseDir . "/" . $path;
-?>
+        } else {
+            $file = $baseDir . "/" . $path;
+            ?>
 
-<?php include 'androxfer-head.php'; ?>
-<?php include 'androxfer-header.php'; ?>
+            <?php include 'androxfer-head.php'; ?>
+            <?php include 'androxfer-header.php'; ?>
 
-    <div id="links" class="andro-column">
-		<div id="files" class="andro-column">
-			<h2>Downloading: <?=basename($_GET['p']);?></h2>
-			<div class="dir-message">
-				<p>Please wait while we prepare your download!</p>
-				<p>File: <?=basename($_GET['p']);?></p>
-				<p>md5: <?=md5_file($file);?></p>
-				<p id="counttext"><span id='countDown'>10</span> second(s) left</span></p>
-			</div>
-		</div>
-	</div>
+            <div id="links" class="andro-column">
+                <div id="files" class="andro-column">
+                    <h2>Downloading: <?= basename($_GET['p']); ?></h2>
 
-<?php include 'androxfer-footer.php'; ?>
+                    <div class="dir-message">
+                        <p>Please wait while we prepare your download!</p>
 
-<script type="text/javascript">
-function startCountDown(i, p, f) {
+                        <p>File: <?= basename($_GET['p']); ?></p>
+
+                        <p>md5: <?= md5_file($file); ?></p>
+
+                        <p id="counttext"><span id='countDown'>10</span> second(s) left</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <?php include 'androxfer-footer.php'; ?>
+
+            <script type="text/javascript">
+                function startCountDown(i, p, f) {
 // store parameters
-var pause = p;
-var fn = f;
+                    var pause = p;
+                    var fn = f;
 // make reference to div
-var countDownObj = document.getElementById("countDown");
-if (countDownObj == null) {
+                    var countDownObj = document.getElementById("countDown");
+                    if (countDownObj == null) {
 // error
-alert("div not found, check your id");
+                        alert("div not found, check your id");
 // bail
-return;
-}
-countDownObj.count = function(i) {
+                        return;
+                    }
+                    countDownObj.count = function (i) {
 // write out count
-countDownObj.innerHTML = i;
-if (i == 0) {
+                        countDownObj.innerHTML = i;
+                        if (i == 0) {
 // execute function
-fn();
+                            fn();
 // stop
-return;
-}
-setTimeout(function() {
+                            return;
+                        }
+                        setTimeout(function () {
 // repeat
-countDownObj.count(i - 1);
-},
-pause
-);
-}
+                                countDownObj.count(i - 1);
+                            },
+                            pause
+                        );
+                    }
 // set it going
-countDownObj.count(i);
-}
+                    countDownObj.count(i);
+                }
 
-function do_download(){
-var newtext = "Initializing File Download...";
-document.getElementById('counttext').innerHTML = newtext;
-document.location.href='http://files.championswimmer.in/get.php?p=<?=$_GET['p']?>&directserve=1';
-}
-</script>
+                function do_download() {
+                    var newtext = "Initializing File Download...";
+                    document.getElementById('counttext').innerHTML = newtext;
+                    document.location.href = 'http://files.championswimmer.in/get.php?p=<?=$_GET['p']?>&directserve=1';
+                }
+            </script>
 
-<script>startCountDown(10, 1000, do_download);</script>
+            <script>startCountDown(10, 1000, do_download);</script>
 
-</body></html>
+            </body></html>
 
-<?
-die;
-}
+            <?
+            die;
+        }
 
-}
+    }
 }
 ?>
