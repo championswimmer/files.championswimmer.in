@@ -29,14 +29,14 @@ body {
 }
 
 ::-moz-selection {
-    background: #0f0;
-    color: #030;
+    background: #08f;
+    color: #046;
     text-shadow: none;
 }
 
 ::selection {
-    background: #0f0;
-    color: #030;
+    background: #08f;
+    color: #046;
     text-shadow: none;
 }
 
@@ -44,7 +44,7 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #0a0;
+    border-top: 1px solid #06b;
     margin: 1em 0;
     padding: 0;
 }
@@ -60,15 +60,15 @@ h1, h2, h3, h4 {
 h2 {
     padding: 4px 15px 7px 5px;
     margin: 0;
-    background: url(../images/main-bg.png) repeat #111;
+    background: linear-gradient(rgba(0, 125, 225, 0.1), rgba(0, 125, 225, 0.2)), url(../images/main-bg.png) repeat ;
     color: #ccc;
     letter-spacing: -2px;
 }
 
 a, a:visited {
-    color: #E4418B;
+    color: #2288DD;
     text-decoration: none;
-    text-shadow: 0 1px 0 #c99;
+    text-shadow: 0 1px 0 #588;
     -webkit-transition: all 500ms ease-out;
     -moz-transition: all 500ms ease-out;
     -ms-transition: all 500ms ease-out;
@@ -114,22 +114,22 @@ textarea {
 }
 
 body{
-    scrollbar-base-color: #0c0;
-    scrollbar-3dlight-color: #0a0;
-    scrollbar-highlight-color: #0a0;
-    scrollbar-track-color: #040;
+    scrollbar-base-color: #0ac;
+    scrollbar-3dlight-color: #06b;
+    scrollbar-highlight-color: #06b;
+    scrollbar-track-color: #024;
     scrollbar-arrow-color: black;
-    scrollbar-shadow-color: #0a0;
-    scrollbar-dark-shadow-color: #040;
+    scrollbar-shadow-color: #06b;
+    scrollbar-dark-shadow-color: #024;
 }
 
 ::-webkit-scrollbar { width: 12px; height: 12px;}
 ::-webkit-scrollbar-button {  background-color: #33b5e5; }
-::-webkit-scrollbar-track {  background-color: #0a0;}
+::-webkit-scrollbar-track {  background-color: #06b;}
 ::-webkit-scrollbar-track-piece { background-color: #245668;}
-::-webkit-scrollbar-thumb { background-color: #E4418B; border-radius: 7px;}
-::-webkit-scrollbar-corner { background-color: #0a0;}}
-::-webkit-resizer { background-color: #0a0;}
+::-webkit-scrollbar-thumb { background-color: #22bbe5; border-radius: 7px;}
+::-webkit-scrollbar-corner { background-color: #06b;}}
+::-webkit-resizer { background-color: #06b;}
 
 @-moz-document url-prefix(http://),url-prefix(https://) {
     scrollbar {
@@ -163,13 +163,13 @@ body{
 
 html {
     height: 100%;
-    background: url(../images/main-bg.png) repeat;
+    background: linear-gradient(rgba(0, 75, 180, 0.1), rgba(0, 75, 180, 0.2)), url(../images/main-bg.png) repeat ;
 }
 
 body {
     font: 14px/18px droidsans, Consolas, Terminal, Monospace;
     color: #fff;
-    background: url(../images/body_bg_pink.gif) repeat-x;
+    background: /*linear-gradient(rgba(0, 75, 180, 0.1), rgba(0, 75, 180, 0.2)),*/ url(../images/body_bg_pink.gif) repeat-x;
 }
 
 .lens-flare {
@@ -406,8 +406,8 @@ header .partners {
 }
 
 .footer-container a {
-    color: #E4418B;
-    text-shadow: 0 1px 0 #c99;
+    color: #2288FF;
+    text-shadow: 0 1px 0 #588;
 }
 
 /* ===============
