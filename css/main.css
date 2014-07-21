@@ -6,9 +6,9 @@
     font-family: 'droidsans';
     src: url('../fonts/DroidSansMono-webfont.eot');
     src: url('../fonts/DroidSansMono-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/DroidSansMono-webfont.woff') format('woff'),
-         url('../fonts/DroidSansMono-webfont.ttf') format('truetype'),
-         url('../fonts/DroidSansMono-webfont.svg#droid_sans_monoregular') format('svg');
+    url('../fonts/DroidSansMono-webfont.woff') format('woff'),
+    url('../fonts/DroidSansMono-webfont.ttf') format('truetype'),
+    url('../fonts/DroidSansMono-webfont.svg#droid_sans_monoregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -25,18 +25,18 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
-	text-shadow: 0 0 4px rgba(0,222,0,0.6);
+    text-shadow: none;
 }
 
 ::-moz-selection {
     background: #0f0;
-	color: #030;
+    color: #030;
     text-shadow: none;
 }
 
 ::selection {
     background: #0f0;
-	color: #030;
+    color: #030;
     text-shadow: none;
 }
 
@@ -54,46 +54,46 @@ img {
 }
 
 h1, h2, h3, h4 {
-	
+
 }
 
 h2 {
-	padding: 4px 15px 7px 5px;
-	margin: 0;
-	background: #0a0;
-	color: #030;
-	letter-spacing: -2px;
+    padding: 4px 15px 7px 5px;
+    margin: 0;
+    background: url(../images/main-bg.png) repeat #111;
+    color: #ccc;
+    letter-spacing: -2px;
 }
 
 a, a:visited {
-	color: #0c0;
-    text-decoration: underline;
-	text-shadow: 0 0 6px rgba(0,222,0,0.8);
-	-webkit-transition: all 500ms ease-out;
-	-moz-transition: all 500ms ease-out;
-	-ms-transition: all 500ms ease-out;
-	-o-transition: all 500ms ease-out;
-	transition: all 500ms ease-out;
+    color: #E4418B;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #c99;
+    -webkit-transition: all 500ms ease-out;
+    -moz-transition: all 500ms ease-out;
+    -ms-transition: all 500ms ease-out;
+    -o-transition: all 500ms ease-out;
+    transition: all 500ms ease-out;
 }
 
 a:hover {
-	background: #0f0;
-	color: #030;
+    background: #000;
+    color: #33b5e5;
     text-decoration: none;
-	text-shadow: 0 0 1px rgba(0,0,0,0.5);
+    text-shadow: none;
 }
 
 a:active {
-	color: #0a0;
+    color: #000;
 }
 
 ul {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul li {
-	list-style: none;
+    list-style: none;
 }
 
 fieldset {
@@ -114,45 +114,45 @@ textarea {
 }
 
 body{
-  scrollbar-base-color: #0c0;
-  scrollbar-3dlight-color: #0a0;
-  scrollbar-highlight-color: #0a0;
-  scrollbar-track-color: #040;
-  scrollbar-arrow-color: black;
-  scrollbar-shadow-color: #0a0;
-  scrollbar-dark-shadow-color: #040;
+    scrollbar-base-color: #0c0;
+    scrollbar-3dlight-color: #0a0;
+    scrollbar-highlight-color: #0a0;
+    scrollbar-track-color: #040;
+    scrollbar-arrow-color: black;
+    scrollbar-shadow-color: #0a0;
+    scrollbar-dark-shadow-color: #040;
 }
 
 ::-webkit-scrollbar { width: 12px; height: 12px;}
-::-webkit-scrollbar-button {  background-color: #0a0; }
+::-webkit-scrollbar-button {  background-color: #33b5e5; }
 ::-webkit-scrollbar-track {  background-color: #0a0;}
-::-webkit-scrollbar-track-piece { background-color: #040;}
-::-webkit-scrollbar-thumb { background-color: #0c0; border-radius: 3px;}
+::-webkit-scrollbar-track-piece { background-color: #245668;}
+::-webkit-scrollbar-thumb { background-color: #E4418B; border-radius: 7px;}
 ::-webkit-scrollbar-corner { background-color: #0a0;}}
 ::-webkit-resizer { background-color: #0a0;}
 
 @-moz-document url-prefix(http://),url-prefix(https://) {
-scrollbar {
-   -moz-appearance: none !important;
-   background: rgb(0,255,0) !important;
-}
-thumb,scrollbarbutton {
-   -moz-appearance: none !important;
-   background-color: rgb(0,0,255) !important;
-}
+    scrollbar {
+        -moz-appearance: none !important;
+        background: rgb(0,255,0) !important;
+    }
+    thumb,scrollbarbutton {
+        -moz-appearance: none !important;
+        background-color: rgb(0,0,255) !important;
+    }
 
-thumb:hover,scrollbarbutton:hover {
-   -moz-appearance: none !important;
-   background-color: rgb(255,0,0) !important;
-}
+    thumb:hover,scrollbarbutton:hover {
+        -moz-appearance: none !important;
+        background-color: rgb(255,0,0) !important;
+    }
 
-scrollbarbutton {
-   display: none !important;
-}
+    scrollbarbutton {
+        display: none !important;
+    }
 
-scrollbar[orient="vertical"] {
-  min-width: 12px !important;
-}
+    scrollbar[orient="vertical"] {
+        min-width: 12px !important;
+    }
 }
 
 
@@ -162,17 +162,18 @@ scrollbar[orient="vertical"] {
    ========================================================================== */
 
 html {
-	height: 100%;
+    height: 100%;
+    background: url(../images/main-bg.png) repeat;
 }
-   
+
 body {
-	font: 14px/18px droidsans, Consolas, Terminal, Monospace;
-	color: #0a0;
-	background: url(../images/body_bg.gif) repeat;
+    font: 14px/18px droidsans, Consolas, Terminal, Monospace;
+    color: #fff;
+    background: url(../images/body_bg_pink.gif) repeat-x;
 }
 
 .lens-flare {
-	display: none;
+    display: none;
 }
 
 /* ===================
@@ -180,8 +181,8 @@ body {
    =================== */
 
 .header-container header a {
-	text-decoration: none;
-	float:left;
+    text-decoration: none;
+    float:left;
 }
 
 .footer-container,
@@ -201,45 +202,47 @@ body {
    ============== */
 
 header a {
-	display: inline-block;
+    display: inline-block;
 }
 
 header a pre {
-	font-size: 10px;
-	line-height: 12px;
+    font-size: 10px;
+    font-family: droidsans, monospace;
+    line-height: 12px;
+    color: #ccc;
 }
 
 header .partners {
-	display: none;
+    display: none;
 }
 
 .inner-partners p {
-	margin: 14px 0 5px;
+    margin: 14px 0 5px;
 }
 
 .inner-partners i, .inner-partners [class^="icon-"], .inner-partners [class*=" icon-"] {
-	font-size: 16px;
-	margin: 0 6px;
+    font-size: 16px;
+    margin: 0 6px;
 }
 
 .footer-partners h2 {
-	margin-bottom: 7px;
+    margin-bottom: 7px;
 }
 
 .footer-partners {
-	text-align: center;
+    text-align: center;
 }
-	
+
 .footer-partners .inner-partners {
-	padding: 5px 10px;
-	margin: 5px 0 15px;
+    padding: 5px 10px;
+    margin: 5px 0 15px;
 }
 
 .footer-partners a {
-	display: block;
-	padding: 0;
-	line-height: 25px;
-	text-decoration: none;
+    display: block;
+    padding: 0;
+    line-height: 25px;
+    text-decoration: none;
 }
 
 /* ==============
@@ -256,139 +259,139 @@ header .partners {
 
 
 .andro-column h2 {
-	margin: 25px 0 0;
-	line-height: 25px;
+    margin: 25px 0 0;
+    line-height: 25px;
 }
 
 .andro-column ul {
-	padding: 0 5px;
-	margin: 0 0 15px 0;
-	overflow: auto;
+    padding: 0 5px;
+    margin: 0 0 15px 0;
+    overflow: auto;
 }
 
 .andro-column ul li {
-	display: inline-block;
-	line-height: 25px;
-	margin: 2px 5px;
+    display: inline-block;
+    line-height: 25px;
+    margin: 2px 5px;
 }
 
 .andro-column ul li a {
-	display: block;
+    display: block;
 }
 
 .andro-column ul li.active a {
-	background: #0f0;
-	color: #030;
-	text-shadow: 0 0 1px rgba(0,0,0,0.5);
+    background: #000;
+    color: #ccc;
+    text-shadow: none;
 }
 
 .dir-message {
-	margin: 15px 20px;
+    margin: 15px 20px;
 }
 
 .readme-contents {
-	margin: 10px 20px;	
+    margin: 10px 20px;
 }
 
 #choose-dev p {
-	margin: 15px 20px;
+    margin: 15px 20px;
 }
 
 #links p {
-	line-height: 26px;
-	margin: 0;
-	padding: 0;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
 }
 
 #links p#counttext {
-	background: #0a0;
-	color: #040;
-	margin-top: 10px;
-	font-weight: bold;
-	text-align: center;
-	text-shadow: 0 0 4px rgba(0, 222, 0, 0.6);
-	animation-name: glow;
-	animation-delay: 0s;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	animation-play-state: running;
-	/* Safari and Chrome: */
-	-webkit-animation-name: glow;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-delay: 0s;
-	-webkit-animation-timing-function: linear;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-direction: alternate;
-	-webkit-animation-play-state: running;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ccc;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: none;
+    animation-name: glow;
+    animation-delay: 0s;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+    /* Safari and Chrome: */
+    -webkit-animation-name: glow;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: running;
 
 }
 
 @keyframes glow
 {
-from {background: #0a0; color: #040;text-shadow: 0 0 4px rgba(0, 222, 0, 0.6);}
-to {background: none; color: #0a0;text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);}
+    from {background: #222; color: #ccc;text-shadow: 0 0 4px rgba(0, 222, 0, 0.6);}
+    to {background: none; color: #ccc;text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);}
 }
 
 @-webkit-keyframes glow /* Safari and Chrome */
 {
-from {background: #0a0; color: #040;text-shadow: 0 0 4px rgba(0, 222, 0, 0.6);}
-to {background: none; color: #0a0;text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);}
+    from {background: #222; color: #ccc;text-shadow: 0 0 4px rgba(0, 222, 0, 0.6);}
+    to {background: none; color: #ccc;text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);}
 }
 
 .downloading-ad {
-	margin: 15px 0;
+    margin: 15px 0;
 }
 
 #filelisting thead tr th {
-	background: #080;
-	color: #0d0;
-	text-shadow: 0 0 0;
-	cursor: pointer;
-	font-size: 12px;
-	letter-spacing: 0;
-	padding: 4px 20px 3px 2px;
+    background: #222;
+    color: #fff;
+    text-shadow: 0 0 0;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0;
+    padding: 4px 20px 3px 2px;
 }
 
-#filelisting thead tr th.headerSortUp { 
-    background: url(../images/sort_down.png) no-repeat right 2px center #0f0;
-	color: #040;
-} 
+#filelisting thead tr th.headerSortUp {
+    background: url(../images/sort_down.png) no-repeat right 2px center rgba(255, 255, 255, 0.15);
+    color: #33b5e5;
+}
 
-#filelisting thead tr th.headerSortDown { 
-    background: url(../images/sort_up.png) no-repeat right 2px center #0f0; 
-	color: #040;
-} 
+#filelisting thead tr th.headerSortDown {
+    background: url(../images/sort_up.png) no-repeat right 2px center rgba(255, 255, 255, 0.15);
+    color: #33b5e5;
+}
 
 #filelisting tbody tr td {
-	padding: 3px 10px;
-	text-align: center;
+    padding: 3px 10px;
+    text-align: center;
 }
 
 #filelisting .dl-count {
-	display: none;
+    display: none;
 }
 
 #files table {
-	width: 100%;
-	margin: 0 0 50px 0;
+    width: 100%;
+    margin: 0 0 50px 0;
 }
 
 #files .cell-perms, #files .cell-owner {
-	display: none;
+    display: none;
 }
 
 .footer-container {
-	clear: both;
-	position: relative;
-	bottom: 0;
-	width: 100%;
-	height: 92px;
+    clear: both;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 92px;
 }
 
 .footer-partners {
-	display: block;
+    display: block;
 }
 
 
@@ -396,14 +399,15 @@ to {background: none; color: #0a0;text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);}
 }
 
 .footer-container h2 {
-	margin: 0;
-	padding: 7px 10px;
-	font-size: 14px;
-	letter-spacing: -1px;
+    margin: 0;
+    padding: 7px 10px;
+    font-size: 14px;
+    letter-spacing: -1px;
 }
 
 .footer-container a {
-	color: #000;
+    color: #E4418B;
+    text-shadow: 0 1px 0 #c99;
 }
 
 /* ===============
@@ -420,131 +424,131 @@ to {background: none; color: #0a0;text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);}
 
 @media only screen and (min-width: 380px) {
 
-	header a pre {
-		font-size: 13px;
-		line-height: 12px;
-	}
+    header a pre {
+        font-size: 13px;
+        line-height: 12px;
+    }
 
 }
 
 @media only screen and (min-width: 580px) {
 
-	header a pre {
-		font-size: 17px;
-		line-height: 19px;
-	}
+    header a pre {
+        font-size: 17px;
+        line-height: 19px;
+    }
 
 }
 
 @media only screen and (min-width: 768px) {
 
-/* ====================
-    >768px: CSS3 Effects
-   ==================== */
+    /* ====================
+        >768px: CSS3 Effects
+       ==================== */
 
-	header a pre {
-		font-size: 15px;
-		line-height: 17px;
-	}
-
-	header .partners h2 {
-		padding: 5px 7px 10px;
-		margin-bottom: 7px;
-		float: left;
-	}
-
-	header .partners .inner-partners {
-		padding: 5px 0 5px 10px;
-	}
-
-	header .partners a {
-		margin: 0 10px 0 0;
-	}
-
-	.andro-column, .readme {
-		float: left;
-	}
-	
-	.andro-column h2 {
-		margin: 0;
-	}
-	
-	.andro-column ul {
-		overflow: auto;
-		padding: 0px 30px 20px 10px;
-		margin: 0;
+    header a pre {
+        font-size: 15px;
+        line-height: 17px;
     }
-	
-	.andro-column ul li {
-		display: block;
-		line-height: 25px;
-		margin: 0;
-	}
 
-	.andro-column ul li a {
-		margin: 0 -30px 0 -20px;
-		padding: 0 30px 0 20px;
-	}
+    header .partners h2 {
+        padding: 5px 7px 10px;
+        margin-bottom: 7px;
+        float: left;
+    }
 
-	.footer-partners {
-		float: none;
-		clear: both;
-	}
-	
+    header .partners .inner-partners {
+        padding: 5px 0 5px 10px;
+    }
+
+    header .partners a {
+        margin: 0 10px 0 0;
+    }
+
+    .andro-column, .readme {
+        float: left;
+    }
+
+    .andro-column h2 {
+        margin: 0;
+    }
+
+    .andro-column ul {
+        overflow: auto;
+        padding: 0px 30px 20px 10px;
+        margin: 0;
+    }
+
+    .andro-column ul li {
+        display: block;
+        line-height: 25px;
+        margin: 0;
+    }
+
+    .andro-column ul li a {
+        margin: 0 -30px 0 -20px;
+        padding: 0 30px 0 20px;
+    }
+
+    .footer-partners {
+        float: none;
+        clear: both;
+    }
+
 }
 
 @media only screen and (min-width: 960px) {
 
-/* ====================
-    >960px: CSS3 Effects
-   ==================== */
+    /* ====================
+        >960px: CSS3 Effects
+       ==================== */
 
     .andro-column {
-		border: 0;
-	}
-	
-	#devs, #folders {
-		position: relative;
-		z-index: 10;
-	}
-	
-	#folders {
-	}
-	
-	#folders ul {
-		padding: 0px 30px 20px 20px;
-	}
-	
-	#files {
-		height: 100%;
-		float: none;
-		display: inline-block;
-	}
-	
-	#files h2 {
-		margin: 0;
-	}
-		
-	#files table {
-		padding: 5px;
-	}
-	
-	#files table tr td.dl-filename {
-		text-align: left;
-	}	
-	
-	#files table tr td.dl-count {
-		padding-right: 60px;
-	}
+        border: 0;
+    }
 
-	#filelisting .dl-count {
-		text-align: right;
-		display: table-cell;
-	}
+    #devs, #folders {
+        position: relative;
+        z-index: 10;
+    }
 
-	#filelisting th.dl-count {
-		text-align: center;
-	}
+    #folders {
+    }
+
+    #folders ul {
+        padding: 0px 30px 20px 20px;
+    }
+
+    #files {
+        height: 100%;
+        float: none;
+        display: inline-block;
+    }
+
+    #files h2 {
+        margin: 0;
+    }
+
+    #files table {
+        padding: 5px;
+    }
+
+    #files table tr td.dl-filename {
+        text-align: left;
+    }
+
+    #files table tr td.dl-count {
+        padding-right: 60px;
+    }
+
+    #filelisting .dl-count {
+        text-align: right;
+        display: table-cell;
+    }
+
+    #filelisting th.dl-count {
+        text-align: center;
+    }
 
 
 }
@@ -552,47 +556,47 @@ to {background: none; color: #0a0;text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);}
 @media only screen and (min-width: 980px) {
 
     header .partners {
-		display: inline-block;
-		margin: 0 0 0 30px;
-	}
-		
-	header .partners .inner-partners {
-		padding: 5px 0 5px 1%;
-		margin: 5px 0 3px;
-	}
+        display: inline-block;
+        margin: 0 0 0 30px;
+    }
 
-	header .partners a {
-		display: inline-block;
-		float: left;
-		margin: 0;
-		width: 49%;
-	}
-	
-	.footer-partners {
-		display: none;
-	}
+    header .partners .inner-partners {
+        padding: 5px 0 5px 1%;
+        margin: 5px 0 3px;
+    }
+
+    header .partners a {
+        display: inline-block;
+        float: left;
+        margin: 0;
+        width: 49%;
+    }
+
+    .footer-partners {
+        display: none;
+    }
 
 }
 
 
 @media only screen and (min-width: 1140px) {
 
-/* ===============
-    Maximal Width
-   =============== */
-   
-	.lens-flare {
-		display: block;
-		background: url(../images/lens_flare.png) no-repeat right -7px fixed;
-		position: absolute;
-		z-index: -1;
-		height: 100%;
-		width: 100%;
-	}
-	
-	#files .cell-perms, #files .cell-owner {
-		display: table-cell;
-	}
+    /* ===============
+        Maximal Width
+       =============== */
+
+    .lens-flare {
+        display: block;
+        background: url(../images/lens_flare.png) no-repeat right -7px fixed;
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+    }
+
+    #files .cell-perms, #files .cell-owner {
+        display: table-cell;
+    }
 }
 
 /* ==========================================================================
