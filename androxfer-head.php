@@ -8,10 +8,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<? if(($_GET['developer'])&&(!$_GET['folder'])){ ?>
-	<title><?=$_GET['developer'];?> Downloads @ aokpXfer</title>
+	<title><?=$_GET['developer'];?> Downloads from Championswimmer </title>
 	<? } ?>
 	<? if(($_GET['developer'])&&($_GET['folder'])){ ?>
-	<title><?=$_GET['developer'];?> Downloads For <?=$_GET['folder'];?> @ aokpXfer</title>
+	<title><?=$_GET['developer'];?> Downloads at <?=$_GET['folder'];?> by Championswimmer</title>
 	<? } ?>
 	<? if((!$_GET['developer'])&&(!$_GET['folder'])){ ?>
 	<title>aokpXfer</title>
