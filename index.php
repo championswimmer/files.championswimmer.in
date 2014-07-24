@@ -249,7 +249,7 @@ if ($currentDeveloper) {
 
 					if (file_exists($filePath)) {
 						//echo "$filePath was last modified: " . date ("F d Y H:i:s.", filemtime($resolvedPath));
-						$last_modified = date ("Y-m-d H:m", filemtime($resolvedPath));
+						$last_modified = date ("Y-m-d H:m", filemtime($filePath));
 					}else{
 						$last_modified = 'N/A';
 					}
