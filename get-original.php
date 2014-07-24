@@ -670,10 +670,10 @@ border-radius: 10px; text-align:center; padding-top:5px; padding-bottom:10px; ma
 <br><br>
 
 </body></html>
-<?
-die;
+<?php
+die();
 }
 
 }
-}
+
 ?>
