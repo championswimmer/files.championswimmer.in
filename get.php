@@ -214,9 +214,6 @@ if ($dc && count($dc) > 0) {
 $dlink=$mirror.''.$path;
 //echo $dlink;
 //die;
-error_log($filename);
-error_log($baseDir);
-error_log($mirror);
 
 if($_GET['directserve']){
  header("Pragma: public");
@@ -467,5 +464,5 @@ die();
 }
 
 }
-
+}
 ?>
