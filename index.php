@@ -22,6 +22,9 @@
 
 $thedomain =  $_SERVER['HTTP_HOST'];
 $thedomain = "http://" .$thedomain. "/";
+$last_modified = 'N/A';
+$filePath = '';
+
 
 
 /* if(($thedomain!='http://files.championswimmer.in/')&&($thedomain!='http://www.androtransfer.com/')){
@@ -248,10 +251,8 @@ if ($currentDeveloper) {
 					///if (file_exists('/home/website/www/androtransfer.com/public_html/AOKP/a510/aokp_a510_jb-mr1_build-3.zip')) {
 
 					if (file_exists($filePath)) {
-						//echo "$filePath was last modified: " . date ("F d Y H:i:s.", filemtime($resolvedPath));
+						echo "$filePath was last modified: " . date ("F d Y H:i:s.", filemtime($resolvedPath));
 						$last_modified = date ("Y-m-d H:m", filemtime($filePath));
-					}else{
-						$last_modified = 'N/A';
 					}
 					?>
 
@@ -266,7 +267,7 @@ if ($currentDeveloper) {
 							<?= number_format(filesize($filePath) / 1048576, 2) ?>
 						</td>
 						<td>
-							<?=$last_modified?>
+							<?= $filePath ?>
 						</td>
 						<td class="dl-filename">
 							<div class='name'><a style='display: block' href='get.php?p=<?= $resolvedPath ?>'><?= $file ?></a></div>

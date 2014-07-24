@@ -23,15 +23,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-function fetch($content,$start,$end){
-  if($content && $start && $end) {
-    $r = explode($start, $content);
-    if (isset($r[1])){
-        $r = explode($end, $r[1]);
-        return $r[0];
+function fetch($content, $start, $end)
+{
+    if ($content && $start && $end) {
+        $r = explode($start, $content);
+        if (isset($r[1])) {
+            $r = explode($end, $r[1]);
+            return $r[0];
+        }
+        return '';
     }
-    return '';
-  }
 }
 
 function get_info($url){
