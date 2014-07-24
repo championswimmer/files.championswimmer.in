@@ -267,7 +267,7 @@ if ($currentDeveloper) {
 							<?= number_format(filesize($filePath) / 1048576, 2) ?>
 						</td>
 						<td>
-							<?= $filePath ?>
+							<?= $resolvedPath ?>
 						</td>
 						<td class="dl-filename">
 							<div class='name'><a style='display: block' href='get.php?p=<?= $resolvedPath ?>'><?= $file ?></a></div>
