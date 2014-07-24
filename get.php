@@ -214,6 +214,9 @@ if ($dc && count($dc) > 0) {
 $dlink=$mirror.''.$path;
 //echo $dlink;
 //die;
+error_log($filename);
+error_log($baseDir);
+error_log($mirror);
 
 if($_GET['directserve']){
  header("Pragma: public");
@@ -382,7 +385,7 @@ die;
 
 if($_GET['countdown']){
 
- header("Pragma: public");
+    header("Pragma: public");
  header("Expires: 0");
  header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
  header("Cache-Control: public");
