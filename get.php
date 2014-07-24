@@ -376,7 +376,7 @@ document.location.href='http://files.championswimmer.in/get.php?p=<?=$_GET['p']?
 
 </body></html>
 
-<?
+<?php
 die;
 }else{
 
