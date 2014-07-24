@@ -251,7 +251,7 @@ if ($currentDeveloper) {
 					///if (file_exists('/home/website/www/androtransfer.com/public_html/AOKP/a510/aokp_a510_jb-mr1_build-3.zip')) {
 
 					if (file_exists($filePath)) {
-						echo "$filePath was last modified: " . date ("F d Y H:i:s.", filemtime($resolvedPath));
+						//echo "$filePath was last modified: " . date ("F d Y H:i:s.", filemtime($resolvedPath));
 						$last_modified = date ("Y-m-d H:m", filemtime($filePath));
 					}
 					?>
