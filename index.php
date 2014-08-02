@@ -123,7 +123,7 @@ if ($currentDeveloper) {
     if ($currentFolder) {
         $folderPath = $devPath."/".$currentFolder;
         $totalPath = $folderPath;
-        $files = getAllInFolder($folderPath, FILE_FILTER_FILES);
+        $files = getAllInFolder($folderPath, FILE_FILTER_ALL);
         $handle = opendir($folderPath);
         $md5s = array();
         if (!empty($files)) {
