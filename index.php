@@ -264,13 +264,19 @@ if ($currentDeveloper) {
 							<?= htmlspecialchars($currentDeveloper) ?>
 						</td>
 						<td>
+                            <?php if (! is_dir($filePath)): ?>
 							<?= number_format(filesize($filePath) / 1048576, 2) ?>
+                            <?php endif ?>
 						</td>
 						<td>
 							<?= date ("d M Y H:i:s.", filemtime($filePath)) ?>
 						</td>
 						<td class="dl-filename">
+                            <?php if (! is_dir($filePath)): ?>
 							<div class='name'><a style='display: block' href='get.php?p=<?= $resolvedPath ?>'><?= $file ?></a></div>
+                            <?php else: ?>
+                            <div class='name'><a href='?developer=<?= rawurlencode($currentDeveloper) ?>&amp;folder=<?= rawurlencode($currentFolder . "/" . $file) ?>'><?= $file ?></a></div>
+                            <?php endif ?>
 							<?php if(isset($fileMd5s[$resolvedPath])): ?>
 								<span class='info'><strong>MD5:</strong> <span style='font-family: Courier'><?= $fileMd5s[$resolvedPath] ?></span></span>
 							<?php endif ?>
@@ -278,7 +284,11 @@ if ($currentDeveloper) {
 						<!---<span class='info'><strong>MD5:</strong> <span style='font-family: Courier'><?//=md5_file($resolvedPath);?></span></span>--->
 						</td>
 						<td class="dl-count">
+                            <?php if (! is_dir($filePath)): ?>
 							<?= number_format(isset($downloadCounts[$resolvedPath]) ? $downloadCounts[$resolvedPath] : 0, 0, '.', '') ?>
+                            <?php else: ?>
+                                <div>folder</div>
+                            <?php endif ?>
 						</td>
 					</tr>
 					<?php endforeach ?>
