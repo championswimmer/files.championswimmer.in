@@ -2,7 +2,10 @@
 	<?php include 'androxfer-friends.php'; ?>
 	</div>
 	<div class="footer-container">
-		<footer class="wrapper">
+        <div class="bottom-ad">
+            <?php include 'androxfer-google_ad_1.php'; ?>
+        </div>
+        <footer class="wrapper">
 			<h2>&copy; <?php echo date("Y"); ?> AndroTransfer &bull; Managed by <a rel="external" href="https://plus.google.com/+ArnavGupta/posts">+championswimmer</a> // Created by <a rel="external" href="https://plus.google.com/u/0/100014433524368062335/posts">+sixstringsg</a> // Designed by <a rel="external" href="https://plus.google.com/u/0/112132608212015447534/posts">+scar45</a></h2>
 		</footer>
 	</div>

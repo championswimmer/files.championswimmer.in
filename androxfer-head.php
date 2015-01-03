@@ -14,7 +14,7 @@
 	<title><?=$_GET['developer'];?> Downloads at <?=$_GET['folder'];?> by Championswimmer</title>
 	<? } ?>
 	<? if((!$_GET['developer'])&&(!$_GET['folder'])){ ?>
-	<title>aokpXfer</title>
+	<title><? echo($siteTitle) ?></title>
 	<? } ?>
 
 

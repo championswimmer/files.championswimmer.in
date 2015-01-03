@@ -25,10 +25,14 @@ define("GB", ONE_K * MB);
 define("TB", ONE_K * GB);
 
 // Site
-$siteName = "androtransfer.com";
+$siteName = "files.championswimmer.in";
+$siteTitle = "Downloads from Championswimmer";
 $baseDir = getcwd();
 $users = explode("\n", file_get_contents($baseDir.'/.users'));
 $globalBlacklist = array(
     "images",
     "private"
 );
+
+//Google Analytics
+$gaTrackingString = "";
