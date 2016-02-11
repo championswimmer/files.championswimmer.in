@@ -83,6 +83,7 @@ $filename = basename($path);
 $ext = end(explode('.', $path));
 $dir = dirname($path);
 $blacklist = array('php');
+echo $filename;
 
 
 //assign mirrors
@@ -335,8 +336,8 @@ if($_GET['countdown']){
 <script type="text/javascript">
 function startCountDown(i, p, f) {
 // store parameters
-var pause = p;
-var fn = f;
+	var pause = p;
+	var fn = f;
 // make reference to div
 var countDownObj = document.getElementById("countDown");
 if (countDownObj == null) {
@@ -378,7 +379,7 @@ document.location.href='http://files.championswimmer.in/get.php?p=<?=$_GET['p']?
 
 <?php
 die;
-}else{
+//}else{
 
 if($_GET['countdown']){
 

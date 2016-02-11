@@ -244,6 +244,7 @@ if ($currentDeveloper) {
 					<?php
 					$rp = realpath($totalPath . "/" . $file);
 					$resolvedPath = substr($rp, strpos($rp, "public_html")+strlen("public_html/"));
+					//echo $rp . "<br>" . $resolvedPath . "<br>" . $baseDir . "<br>";
 					$filePath = $baseDir . "/" . $resolvedPath;
 					?>
 
