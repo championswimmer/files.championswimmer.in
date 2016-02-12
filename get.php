@@ -197,7 +197,7 @@ if ($fp) {
     fclose($fp);
 }
 
-/*$dc = json_decode(file_get_contents($baseDir."/.counts"), true);
+$dc = json_decode(file_get_contents($baseDir."/.counts"), true);
 if ($dc && count($dc) > 0) {
     $count = 1;
     if(isset($dc[$path])) {
@@ -208,7 +208,7 @@ if ($dc && count($dc) > 0) {
     file_put_contents($baseDir."/.counts", json_encode($dc));
 } else {
     file_put_contents($baseDir."/.last_error", "JSON failed to decode! " . json_last_error());
-}*/
+}
 
 //set mirrors file path
 
