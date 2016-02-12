@@ -23,6 +23,7 @@
 			</div>
 		</header>
 	</div>
+	<?php include 'androxfer-google_ad_1.php'; ?>
 	<div id="devs" class="andro-column">
 		<h2><i class="icon icon-groups-friends"></i>developers</h2>
 		<ul>
@@ -31,4 +32,3 @@
 			<?php endforeach ?>
 		</ul>
 	</div><!-- end devs -->
-	<?php include 'androxfer-google_ad_1.php'; ?>
