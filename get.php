@@ -458,6 +458,8 @@ document.location.href='http://files.championswimmer.in/get.php?p=<?=$_GET['p']?
 
 <script>startCountDown(10, 1000, do_download);</script>
 
+<?php include 'androxfer-footer.php'; ?>
+
 </body></html>
 
 <?php
