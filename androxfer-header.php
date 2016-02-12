@@ -31,3 +31,4 @@
 			<?php endforeach ?>
 		</ul>
 	</div><!-- end devs -->
+	<?php include 'androxfer-google_ad_1.php'; ?>
